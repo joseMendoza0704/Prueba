@@ -6,11 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.prueba.Screens.HomeScreen
-
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.prueba.Screens.CharacterListScreen
 import com.example.prueba.ui.theme.PruebaTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,15 +22,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    // Inyectamos el CharacterViewModel
+                    val viewModel: CharacterViewModel = viewModel()
+                    CharacterListScreen(viewModel = viewModel)
                 }
             }
         }
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-
-}
-
